@@ -1,13 +1,13 @@
 const { User, Thought } = require("../models");
 
 module.exports = {
-  getThoughts(req, res) {
+  getUsers(req, res) {
     User.find()
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
   // Get a single user
-  getSingleComment(req, res) {
+  getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .then((user) =>
         !user
@@ -16,16 +16,9 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  // Create a thought
+  // Create a user
   createUser(req, res) {
-    Comment.create(req.body)
-      .then((thought) => {
-        return User.findOneAndUpdate(
-          { _id: req.body.userId },
-          { $push: { users: user._id } },
-          { new: true }
-        );
-      })
+    User.create(req.body)
       .then((user) =>
         !user
           ? res

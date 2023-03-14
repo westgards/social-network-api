@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./config/connection");
-// Require model
+// Require models
+const routes = require("./routes");
 const { User } = require("./models");
 const { Thought } = require("./models");
 
@@ -9,10 +10,11 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(routes);
 
-app.get("/all-items", (req, res) => {
+app.get("/all-users", (req, res) => {
   // Using model in route to find all documents that are instances of that model
-  Item.find({}, (err, result) => {
+  User.find({}, (err, result) => {
     if (err) {
       res.status(500).send({ message: "Internal Server Error" });
     } else {

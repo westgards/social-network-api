@@ -30,7 +30,7 @@ This app uses **Node.js**, **Mongoose**, **MongoDB**, and **Express.js** so you 
 
 \*\*This app is not deployed, you can see the api in action with Insomina below in the demo video:
 
-[social network api video link]()
+[social network api video link](https://drive.google.com/file/d/1lDclS7jNmTMTRDjQYC6H6F4yDSwfnm53/view)
 
 ## Credits
 

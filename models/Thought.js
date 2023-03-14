@@ -3,10 +3,13 @@ const { Schema, model } = require("mongoose");
 // Schema to create Post model
 const thoughtSchema = new Schema(
   {
-    thoughtText: String, //required range[1-128chars]
-    createdAt: Date, //default current time, getter method for current timestamp
-    username: String,
-    reactions: [{ type: Schema.Types.ObjectId, ref: "thought" }],
+    thoughtText: {
+      type: String,
+      required: true,
+      minLength: 1,
+      maxLength: 280, //required range[1-280chars]
+      reactions: [{ type: Schema.Types.ObjectId, ref: "thought" }],
+    },
   },
   {
     toJSON: {
